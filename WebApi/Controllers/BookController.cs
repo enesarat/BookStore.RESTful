@@ -20,6 +20,7 @@ namespace WebApi.AddControllers
             _context = context;
         }
 
+        // Here, we retreive all books data from database context via GetBook endpoint.
         [HttpGet]
         public IActionResult GetBooks()
         {
@@ -28,6 +29,7 @@ namespace WebApi.AddControllers
             return Ok(result);
         }
 
+        // Here, we retreive the book data according to given id info from database context via GetById endpoint.
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -46,6 +48,7 @@ namespace WebApi.AddControllers
             return Ok(result);
         }
 
+        // Here, we create book data according to incoming book informations into database context via AddBook endpoint.
         [HttpPost]
         public IActionResult AddBook([FromBody] CreateBookModel newBook)
         {
@@ -65,6 +68,7 @@ namespace WebApi.AddControllers
 
         }
 
+        // Here, we update the book data according to related book informations which exist on Id to database context via UpdateBook endpoint.
         [HttpPut("{id}")]
         public IActionResult UpdateBook(int id, [FromBody] UpdateBookModel updatedBook)
         {
@@ -83,6 +87,7 @@ namespace WebApi.AddControllers
 
         }
 
+        // Here, we delete the book data according to given id info from database context via DeleteBook endpoint.
         [HttpDelete("{id}")]
         public IActionResult DeleteBook(int id)
         {
