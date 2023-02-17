@@ -34,3 +34,4 @@ C:\Users\Enes\source\repos\BookStore\WebApi\obj\Debug\net7.0\WebApi.pdb
 C:\Users\Enes\source\repos\BookStore\WebApi\obj\Debug\net7.0\WebApi.genruntimeconfig.cache
 C:\Users\Enes\source\repos\BookStore\WebApi\obj\Debug\net7.0\ref\WebApi.dll
 C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\FluentValidation.dll
