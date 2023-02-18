@@ -4,6 +4,6 @@
     "\\WebApi",
     "\\WebApi\\Controllers"
   ],
-  "SelectedNode": "\\BookStoreSln.sln",
+  "SelectedNode": "\\WebApi\\Controllers\\BookController.cs",
   "PreviewInSolutionExplorer": false
 }
