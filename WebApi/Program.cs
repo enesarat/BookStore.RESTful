@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using WebApi.Common;
 using WebApi.DbOperations;
 using WebApi.Middlewares;
 using WebApi.Services;
@@ -26,6 +27,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddSingleton<ILoggerService, ConsoleLogger>();
 
 

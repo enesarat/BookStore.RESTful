@@ -2,14 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.BookOperations.GetBookDetail;
-using WebApi.BookOperations.CreateBook;
-using WebApi.BookOperations.GetBooks;
-using WebApi.BookOperations.UpdateBook;
 using WebApi.DbOperations;
-using WebApi.BookOperations.DeleteBook;
 using FluentValidation.Results;
 using FluentValidation;
+using WebApi.Application.BookOperations.Commands.CreateBook;
+using WebApi.Application.BookOperations.Commands.DeleteBook;
+using WebApi.Application.BookOperations.Commands.UpdateBook;
+using WebApi.Application.BookOperations.Queries.GetBookDetail;
+using WebApi.Application.BookOperations.Queries.GetBooks;
+using AutoMapper;
 
 namespace WebApi.AddControllers
 {
@@ -18,16 +19,18 @@ namespace WebApi.AddControllers
     public class BookController : ControllerBase
     {
         private readonly BookStoreDbContext _context;
-        public BookController(BookStoreDbContext context)
+        private readonly IMapper _mapper;
+        public BookController(BookStoreDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // Here, we retreive all books data from database context via GetBook endpoint.
         [HttpGet]
         public IActionResult GetBooks()
         {
-            GetBooksQuery query = new GetBooksQuery(_context);
+            GetBooksQuery query = new GetBooksQuery(_context,_mapper);
             var result = query.Handle();
             return Ok(result);
         }
@@ -38,9 +41,9 @@ namespace WebApi.AddControllers
         {
             BookDetailViewModel result;
 
-            GetBookByIdQuery query = new GetBookByIdQuery(_context);
+            GetBookByIdQuery query = new GetBookByIdQuery(_context,_mapper);
             query.BookId = id;
-            GetBookDetailValidator validator = new GetBookDetailValidator();
+            GetBookDetailQueryValidator validator = new GetBookDetailQueryValidator();
             validator.ValidateAndThrow(query);
             result = query.Handle();
 
@@ -49,32 +52,21 @@ namespace WebApi.AddControllers
 
         // Here, we create book data according to incoming book informations into database context via AddBook endpoint.
         [HttpPost]
-        public IActionResult AddBook([FromBody] CreateBookModel newBook)
+        public IActionResult AddBook([FromBody] CreateBookViewModel newBook)
         {
-            CreateBookCommand createBookCommand = new CreateBookCommand(_context);
+            CreateBookCommand createBookCommand = new CreateBookCommand(_context,_mapper);
 
             createBookCommand.Model = newBook;
             CreateBookCommandValidator validator = new CreateBookCommandValidator();
             validator.ValidateAndThrow(createBookCommand);
             createBookCommand.Handle();
 
-            //if (!result.IsValid)
-            //    foreach (var item in result.Errors)
-            //    {
-            //        Console.WriteLine("Özellik: " + item.PropertyName + "- Error Message: " + item.ErrorMessage);
-            //    }
-            //else
-            //    createBookCommand.Handle();
-
-
             return Ok();
-
-
         }
 
         // Here, we update the book data according to related book informations which exist on Id to database context via UpdateBook endpoint.
         [HttpPut("{id}")]
-        public IActionResult UpdateBook(int id, [FromBody] UpdateBookModel updatedBook)
+        public IActionResult UpdateBook(int id, [FromBody] UpdateBookViewModel updatedBook)
         {
             UpdateBookCommand updateBookCommand = new UpdateBookCommand(_context);
 
