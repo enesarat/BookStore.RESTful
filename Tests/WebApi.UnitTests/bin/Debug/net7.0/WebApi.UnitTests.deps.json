@@ -9,6 +9,8 @@
       "WebApi.UnitTests/1.0.0": {
         "dependencies": {
           "FluentAssertions": "6.10.0",
+          "Microsoft.EntityFrameworkCore": "7.0.3",
+          "Microsoft.EntityFrameworkCore.InMemory": "7.0.3",
           "Microsoft.NET.Test.Sdk": "17.3.2",
           "Moq": "4.18.4",
           "WebApi": "1.0.0",
