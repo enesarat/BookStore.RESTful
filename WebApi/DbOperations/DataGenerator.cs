@@ -37,7 +37,7 @@ namespace WebApi.DbOperations
                     {
                         Title = "Lean Startup",
                         GenreId = 1,
-                        AuthorId = 0,
+                        AuthorId = 1,
                         PageCount = 200,
                         PublishDate = new DateTime(2001, 06, 12)
                     },
@@ -45,7 +45,7 @@ namespace WebApi.DbOperations
                     {
                         Title = "Herland",
                         GenreId = 2,
-                        AuthorId = 1,
+                        AuthorId = 2,
                         PageCount = 250,
                         PublishDate = new DateTime(2010, 05, 23)
                     },
@@ -53,7 +53,7 @@ namespace WebApi.DbOperations
                     {
                         Title = "Dune",
                         GenreId = 2,
-                        AuthorId = 2,
+                        AuthorId = 3,
                         PageCount = 540,
                         PublishDate = new DateTime(2001, 12, 21)
                     },
@@ -61,18 +61,18 @@ namespace WebApi.DbOperations
                     {
                         Title = "28.Harf",
                         GenreId = 2,
-                        AuthorId = 3,
+                        AuthorId = 4,
                         PageCount = 2207,
                         PublishDate = new DateTime(2022, 07, 22)
                     }
                 );
 
                 context.AddRange(new Author
-                {
-                    Name = "Fyodor",
-                    Surname = "Dostoyevski",
-                    BirthDate = new DateTime(1821, 11, 11)
-                },
+                    {
+                        Name = "Fyodor",
+                        Surname = "Dostoyevski",
+                        BirthDate = new DateTime(1821, 11, 11)
+                    },
                     new Author
                     {
                         Name = "Jean Paul",

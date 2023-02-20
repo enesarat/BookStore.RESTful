@@ -5,10 +5,15 @@ C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\WebApi.deps.json
 C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\WebApi.runtimeconfig.json
 C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\WebApi.dll
 C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\WebApi.pdb
+C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\FluentValidation.dll
 C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -33,8 +38,3 @@ C:\Users\Enes\source\repos\BookStore\WebApi\obj\Debug\net7.0\refint\WebApi.dll
 C:\Users\Enes\source\repos\BookStore\WebApi\obj\Debug\net7.0\WebApi.pdb
 C:\Users\Enes\source\repos\BookStore\WebApi\obj\Debug\net7.0\WebApi.genruntimeconfig.cache
 C:\Users\Enes\source\repos\BookStore\WebApi\obj\Debug\net7.0\ref\WebApi.dll
-C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
-C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\FluentValidation.dll
-C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\Newtonsoft.Json.dll
-C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\AutoMapper.dll
-C:\Users\Enes\source\repos\BookStore\WebApi\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

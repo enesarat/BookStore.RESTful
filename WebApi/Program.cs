@@ -33,6 +33,7 @@ builder.Services.AddSingleton<ILoggerService, ConsoleLogger>();
 
 // Here, we define our tatabase context as "in memory database" before the build task of application
 builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseInMemoryDatabase(databaseName: "BookStoreDB"));
+builder.Services.AddScoped<IBookStoreDbContext>(provider => provider.GetService<BookStoreDbContext>());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
