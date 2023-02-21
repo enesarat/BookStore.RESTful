@@ -19,7 +19,7 @@ namespace WebApi.Application.AuthorOperations.Commands.CreateAuthor
             var author = _context.Authors.FirstOrDefault(x => x.Name == Model.Name && x.Surname == Model.Surname);
             if (author is not null)
             {
-                throw new InvalidOperationException("Aynı kimliğe sahip yazar bulunmaktadır");
+                throw new InvalidOperationException("Aynı kimliğe sahip yazar bulunmaktadır.");
             }
             author = _mapper.Map<Author>(Model);
             _context.Authors.Add(author);

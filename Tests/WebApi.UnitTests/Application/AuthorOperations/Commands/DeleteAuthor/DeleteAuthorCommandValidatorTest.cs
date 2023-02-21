@@ -4,30 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebApi.Application.BookOperations.Commands.CreateBook;
+using WebApi.Application.AuthorOperations.Commands.DeleteAuthor;
 using WebApi.Application.BookOperations.Commands.DeleteBook;
-using WebApi.Application.BookOperations.Queries.GetBookDetail;
-using WebApi.DbOperations;
 using WebApi.UnitTests.TestSetup;
 
-namespace WebApi.UnitTests.Application.BookOperations.Commands.DeleteBook
+namespace WebApi.UnitTests.Application.AuthorOperations.Commands.DeleteAuthor
 {
-    public class DeleteBookCommandValidatorTest : IClassFixture<CommonTestFixture>
+    public class DeleteAuthorCommandValidatorTest : IClassFixture<CommonTestFixture>
     {
-
         [Theory]
         [InlineData(-999)]
         [InlineData(0)]
         [InlineData(-1)]
         [InlineData(1)]
-        public void WhenLowerThanAndEqualToZeroIdIsGiven_Validator_ShouldBeReturnError(int bookId)
+        public void WhenLowerThanAndEqualToZeroIdIsGiven_Validator_ShouldBeReturnError(int authorId)
         {
             // Arrange
-            DeleteBookCommand command = new DeleteBookCommand(null);
-            command.BookId = bookId;
+            DeleteAuthorCommand command = new DeleteAuthorCommand(null);
+            command.AuthorId = authorId;
 
             // Act
-            DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
+            DeleteAuthorCommandValidator validator = new DeleteAuthorCommandValidator();
             var result = validator.Validate(command);
 
 
@@ -39,11 +36,11 @@ namespace WebApi.UnitTests.Application.BookOperations.Commands.DeleteBook
         public void WhenValidInputsAreGiven_Validator_ShouldNotBeReturnError()
         {
             // Arrange
-            DeleteBookCommand command = new DeleteBookCommand(null);
-            command.BookId = 1;
+            DeleteAuthorCommand command = new DeleteAuthorCommand(null);
+            command.AuthorId = 1;
 
             // Act
-            DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
+            DeleteAuthorCommandValidator validator = new DeleteAuthorCommandValidator();
             var result = validator.Validate(command);
 
             // Assert
