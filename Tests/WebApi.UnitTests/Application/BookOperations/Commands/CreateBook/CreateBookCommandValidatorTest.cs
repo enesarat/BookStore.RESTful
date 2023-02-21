@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebApi.Application.BookOperations.Commands.CreateBook;
+using WebApi.UnitTests.TestSetup;
 
 namespace WebApi.UnitTests.Application.BookOperations.Commands.CreateBook
 {
-    public class CreateBookCommandValidatorTest
+    public class CreateBookCommandValidatorTest : IClassFixture<CommonTestFixture>
     {
         [Theory]
         [InlineData("Lord Of The Rings",0,0)]

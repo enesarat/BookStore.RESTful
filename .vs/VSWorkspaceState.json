@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Tests",
+    "\\Tests\\WebApi.UnitTests",
     "\\WebApi",
     "\\WebApi\\Controllers",
     "\\WebApi\\Middlewares"
   ],
-  "SelectedNode": "\\WebApi\\Middlewares\\CustomExceptionMiddleware.cs",
+  "SelectedNode": "\\WebApi\\Controllers\\AuthorController.cs",
   "PreviewInSolutionExplorer": false
 }

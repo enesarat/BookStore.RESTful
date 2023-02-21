@@ -16,7 +16,7 @@ namespace WebApi.Application.GenreOperations.Commands.CreateGenre
             var genre = _context.Genres.SingleOrDefault(x => x.Name == Model.Name);
             if (genre is not null)
             {
-                throw new InvalidOperationException("Bu kitap türü zaten mevcut");
+                throw new InvalidOperationException("Bu kitap türü zaten mevcut.");
             }
             genre = new Genre();
             genre.Name = Model.Name;

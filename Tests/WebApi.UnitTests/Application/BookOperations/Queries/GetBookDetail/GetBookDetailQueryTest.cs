@@ -26,7 +26,6 @@ namespace WebApi.UnitTests.Application.BookOperations.Queries.GetBookDetail
         [InlineData(9999)]
         public void WhenBookIdIsNotFound_InvalidOperationException_ShouldReturnError(int id)
         {
-            var authorId = id;
             GetBookByIdQuery query = new GetBookByIdQuery(_context, _mapper);
             query.BookId = id;
             FluentActions.Invoking(() => query.Handle()).Should().Throw<InvalidOperationException>().And.Message.Should().Be("Kitap bulunamadı!");
