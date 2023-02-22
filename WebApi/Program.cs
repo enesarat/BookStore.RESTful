@@ -1,6 +1,9 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 using WebApi.Common;
 using WebApi.DbOperations;
 using WebApi.Middlewares;
@@ -25,8 +28,45 @@ builder.Services.AddSwaggerGen(options =>
             Email = "enes_arat@outlook.com"
         },
     });
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter a valid token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "Bearer"
+    });
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            new string[]{}
+        }
+    });
 });
 
+builder.Services.AddAuthentication().AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateAudience = true,
+        ValidateIssuer = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Token:Issuer"],
+        ValidAudience = builder.Configuration["Token:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
+        ClockSkew =  TimeSpan.Zero
+    };
+});
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddSingleton<ILoggerService, ConsoleLogger>();
 
@@ -49,6 +89,8 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     DataGenerator.Initialize(services);
 }
+app.UseAuthentication();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
